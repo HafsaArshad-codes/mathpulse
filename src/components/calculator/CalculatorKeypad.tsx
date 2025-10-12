@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { CalculatorMode } from "../Calculator";
+import { ProgrammerKeypad } from "./keypads/ProgrammerKeypad";
+import { DateKeypad } from "./keypads/DateKeypad";
+import { ConverterKeypad } from "./keypads/ConverterKeypad";
 
 interface CalculatorKeypadProps {
   mode: CalculatorMode;
@@ -26,6 +29,18 @@ export const CalculatorKeypad = ({
       {value}
     </Button>
   );
+
+  if (mode === "programmer") {
+    return <ProgrammerKeypad onButtonClick={onButtonClick} onClear={onClear} onDelete={onDelete} onEquals={onEquals} />;
+  }
+
+  if (mode === "date") {
+    return <DateKeypad onButtonClick={onButtonClick} onClear={onClear} />;
+  }
+
+  if (mode === "converter") {
+    return <ConverterKeypad onButtonClick={onButtonClick} onClear={onClear} />;
+  }
 
   if (mode === "standard") {
     return (
@@ -101,13 +116,5 @@ export const CalculatorKeypad = ({
     );
   }
 
-  return (
-    <div className="grid grid-cols-4 gap-3">
-      <div className="col-span-4 text-center text-muted-foreground py-8">
-        {mode === "programmer" && "Programmer mode coming soon"}
-        {mode === "date" && "Date calculator coming soon"}
-        {mode === "converter" && "Unit converter coming soon"}
-      </div>
-    </div>
-  );
+  return null;
 };
