@@ -108,10 +108,10 @@ export const CalculatorKeypad = ({
         <CalcButton value="1" />
         <CalcButton value="2" />
         <CalcButton value="3" />
-        <CalcButton value="." />
-        <Button onClick={onEquals} variant="default" className="h-12 text-sm rounded-xl row-span-2 bg-calc-operator hover:bg-calc-operator-hover">=</Button>
+        <CalcButton value="0" className="col-span-2" />
         
-        <CalcButton value="0" className="col-span-4" />
+        <CalcButton value="." />
+        <Button onClick={onEquals} variant="default" className="h-12 text-sm rounded-xl col-span-2 bg-calc-operator hover:bg-calc-operator-hover">= (Enter)</Button>
       </div>
     );
   }

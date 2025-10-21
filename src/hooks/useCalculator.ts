@@ -56,6 +56,13 @@ export const useCalculator = (mode: CalculatorMode) => {
     try {
       let evalExpression = expression;
       
+      // Auto-close unclosed parentheses
+      const openParens = (evalExpression.match(/\(/g) || []).length;
+      const closeParens = (evalExpression.match(/\)/g) || []).length;
+      if (openParens > closeParens) {
+        evalExpression += ")".repeat(openParens - closeParens);
+      }
+      
       // Handle scientific notation
       evalExpression = evalExpression.replace(/\^/g, "^");
       
@@ -67,7 +74,7 @@ export const useCalculator = (mode: CalculatorMode) => {
       // Add to history
       const historyItem: HistoryItem = {
         id: Date.now().toString(),
-        expression,
+        expression: evalExpression,
         result: formattedResult,
         timestamp: Date.now(),
       };
