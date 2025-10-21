@@ -78,9 +78,13 @@ export const ProgrammerKeypad = ({ onButtonClick, onClear, onDelete, onEquals }:
         <CalcButton value="1" disabled={base === "BIN"} />
         <CalcButton value="2" disabled={base === "BIN"} />
         <CalcButton value="3" disabled={base === "BIN"} />
-        <CalcButton value="0" className="col-span-2" />
+        <CalcButton value="0" />
+        <CalcButton value="." />
 
-        <Button onClick={onEquals} variant="default" className="col-span-5 h-12 text-sm rounded-xl bg-calc-operator hover:bg-calc-operator-hover">
+        <Button 
+          onClick={onEquals} 
+          className="col-span-5 h-14 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
+        >
           = (Enter)
         </Button>
       </div>

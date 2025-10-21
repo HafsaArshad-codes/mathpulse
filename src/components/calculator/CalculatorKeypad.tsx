@@ -67,7 +67,12 @@ export const CalculatorKeypad = ({
         
         <CalcButton value="0" className="col-span-2" />
         <CalcButton value="." />
-        <Button onClick={onEquals} variant="default" className="h-16 text-lg font-medium rounded-xl bg-calc-operator hover:bg-calc-operator-hover">=</Button>
+        <Button 
+          onClick={onEquals} 
+          className="h-16 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
+        >
+          =
+        </Button>
       </div>
     );
   }
@@ -108,10 +113,15 @@ export const CalculatorKeypad = ({
         <CalcButton value="1" />
         <CalcButton value="2" />
         <CalcButton value="3" />
-        <CalcButton value="0" className="col-span-2" />
-        
+        <CalcButton value="0" />
         <CalcButton value="." />
-        <Button onClick={onEquals} variant="default" className="h-12 text-sm rounded-xl col-span-2 bg-calc-operator hover:bg-calc-operator-hover">= (Enter)</Button>
+        
+        <Button 
+          onClick={onEquals} 
+          className="col-span-5 h-14 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
+        >
+          = (Enter)
+        </Button>
       </div>
     );
   }

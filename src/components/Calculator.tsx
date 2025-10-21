@@ -3,6 +3,7 @@ import { CalculatorDisplay } from "./calculator/CalculatorDisplay";
 import { CalculatorKeypad } from "./calculator/CalculatorKeypad";
 import { ModeSidebar } from "./calculator/ModeSidebar";
 import { HistorySidebar } from "./calculator/HistorySidebar";
+import { ThemeToggle } from "./ThemeToggle";
 import { useCalculator } from "@/hooks/useCalculator";
 
 export type CalculatorMode = "standard" | "scientific" | "programmer" | "date" | "converter";
@@ -16,6 +17,9 @@ const Calculator = () => {
       <ModeSidebar currentMode={mode} onModeChange={setMode} />
       
       <div className="flex-1 flex flex-col p-6">
+        <div className="flex justify-end mb-4">
+          <ThemeToggle />
+        </div>
         <div className="max-w-2xl mx-auto w-full flex-1 flex flex-col gap-4">
           <CalculatorDisplay 
             expression={calculator.expression}

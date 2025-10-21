@@ -91,11 +91,14 @@ export const ConverterKeypad = ({ onButtonClick, onClear }: ConverterKeypadProps
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <Button onClick={onClear} variant="secondary" className="rounded-xl">
+        <Button onClick={onClear} variant="secondary" className="rounded-xl h-12">
           Clear
         </Button>
-        <Button onClick={handleConvert} variant="default" className="rounded-xl bg-calc-operator hover:bg-calc-operator-hover">
-          Convert (Enter)
+        <Button 
+          onClick={handleConvert} 
+          className="rounded-xl h-14 text-lg font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
+        >
+          = Convert
         </Button>
       </div>
     </div>

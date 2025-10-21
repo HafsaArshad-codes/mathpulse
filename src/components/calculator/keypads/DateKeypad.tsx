@@ -94,11 +94,14 @@ export const DateKeypad = ({ onButtonClick, onClear }: DateKeypadProps) => {
       )}
 
       <div className="grid grid-cols-2 gap-2">
-        <Button onClick={onClear} variant="secondary" className="rounded-xl">
+        <Button onClick={onClear} variant="secondary" className="rounded-xl h-12">
           Clear
         </Button>
-        <Button onClick={handleCalculate} variant="default" className="rounded-xl bg-calc-operator hover:bg-calc-operator-hover">
-          Calculate (Enter)
+        <Button 
+          onClick={handleCalculate} 
+          className="rounded-xl h-14 text-lg font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
+        >
+          = Calculate
         </Button>
       </div>
     </div>
