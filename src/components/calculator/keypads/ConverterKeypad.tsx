@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { convert, conversionUnits, UnitCategory } from "@/utils/converter";
+import { convert, conversionUnits, UnitCategory, getUnitAbbreviation } from "@/utils/converter";
 
 interface ConverterKeypadProps {
   onButtonClick: (value: string) => void;
@@ -22,7 +22,14 @@ export const ConverterKeypad = ({ onButtonClick, onClear }: ConverterKeypadProps
     if (isNaN(numValue)) return;
 
     const result = convert(numValue, fromUnit, toUnit, category);
-    onButtonClick(`RESULT:${numValue} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`);
+    const fromAbbr = getUnitAbbreviation(fromUnit);
+    const toAbbr = getUnitAbbreviation(toUnit);
+    
+    // Format: RESULT:expression|result
+    const expression = `${numValue} ${fromAbbr} = ${result.toFixed(2)} ${toAbbr}`;
+    const resultOnly = `${result.toFixed(2)} ${toAbbr}`;
+    
+    onButtonClick(`RESULT:${expression}|${resultOnly}`);
   };
   
   const handleClear = () => {

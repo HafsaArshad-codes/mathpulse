@@ -119,6 +119,34 @@ export const conversionUnits: Record<UnitCategory, Record<string, ConversionUnit
   },
 };
 
+// Unit abbreviations mapping
+export const unitAbbreviations: Record<string, string> = {
+  Meters: "m",
+  Kilometers: "km",
+  Centimeters: "cm",
+  Miles: "mi",
+  Feet: "ft",
+  Inches: "in",
+  Kilograms: "kg",
+  Grams: "g",
+  Pounds: "lb",
+  Ounces: "oz",
+  Celsius: "°C",
+  Fahrenheit: "°F",
+  Kelvin: "K",
+  Liters: "L",
+  Milliliters: "mL",
+  Gallons: "gal",
+  Bytes: "B",
+  Kilobytes: "KB",
+  Megabytes: "MB",
+  Gigabytes: "GB",
+};
+
+export const getUnitAbbreviation = (unitName: string): string => {
+  return unitAbbreviations[unitName] || unitName;
+};
+
 export const convert = (
   value: number,
   fromUnit: string,

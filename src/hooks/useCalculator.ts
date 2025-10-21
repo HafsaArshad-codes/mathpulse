@@ -34,9 +34,17 @@ export const useCalculator = (mode: CalculatorMode) => {
   const handleInput = useCallback((value: string) => {
     // Handle special commands from Date and Converter modes
     if (value.startsWith("RESULT:")) {
-      const resultValue = value.replace("RESULT:", "");
-      setResult(resultValue);
-      setExpression(prev => prev + " = " + resultValue);
+      const parts = value.replace("RESULT:", "").split("|");
+      if (parts.length === 2) {
+        // Format: RESULT:expression|result
+        setExpression(parts[0]);
+        setResult(parts[1]);
+      } else {
+        // Fallback for old format
+        const resultValue = value.replace("RESULT:", "");
+        setResult(resultValue);
+        setExpression(resultValue);
+      }
       return;
     }
     

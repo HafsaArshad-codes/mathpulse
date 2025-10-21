@@ -18,10 +18,12 @@ export const DateKeypad = ({ onButtonClick, onClear }: DateKeypadProps) => {
   const handleCalculate = () => {
     if (mode === "diff" && date1 && date2) {
       const result = calculateDateDifference(date1, date2);
-      onButtonClick(`RESULT:${date1} to ${date2} = ${result}`);
+      const expression = `${date1} to ${date2}`;
+      onButtonClick(`RESULT:${expression}|${result}`);
     } else if (mode === "add" && date1 && days) {
       const result = addDaysToDate(date1, parseInt(days));
-      onButtonClick(`RESULT:${date1} + ${days} days = ${result}`);
+      const expression = `${date1} + ${days} days`;
+      onButtonClick(`RESULT:${expression}|${result}`);
     }
   };
   
