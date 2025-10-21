@@ -22,7 +22,12 @@ export const ConverterKeypad = ({ onButtonClick, onClear }: ConverterKeypadProps
     if (isNaN(numValue)) return;
 
     const result = convert(numValue, fromUnit, toUnit, category);
-    onButtonClick(`RESULT:${result.toFixed(6)} ${toUnit}`);
+    onButtonClick(`RESULT:${numValue} ${fromUnit} = ${result.toFixed(6)} ${toUnit}`);
+  };
+  
+  const handleClear = () => {
+    setValue("");
+    onClear();
   };
 
   const units = Object.keys(conversionUnits[category]);
@@ -91,14 +96,14 @@ export const ConverterKeypad = ({ onButtonClick, onClear }: ConverterKeypadProps
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <Button onClick={onClear} variant="secondary" className="rounded-xl h-12">
-          Clear
+        <Button onClick={handleClear} variant="secondary" className="rounded-xl h-12 text-lg font-medium">
+          C
         </Button>
         <Button 
           onClick={handleConvert} 
-          className="rounded-xl h-14 text-lg font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
+          className="rounded-xl h-16 text-xl font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
         >
-          = Convert
+          =
         </Button>
       </div>
     </div>

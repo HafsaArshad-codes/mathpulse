@@ -18,11 +18,18 @@ export const DateKeypad = ({ onButtonClick, onClear }: DateKeypadProps) => {
   const handleCalculate = () => {
     if (mode === "diff" && date1 && date2) {
       const result = calculateDateDifference(date1, date2);
-      onButtonClick(`RESULT:${result}`);
+      onButtonClick(`RESULT:${date1} to ${date2} = ${result}`);
     } else if (mode === "add" && date1 && days) {
       const result = addDaysToDate(date1, parseInt(days));
-      onButtonClick(`RESULT:${result}`);
+      onButtonClick(`RESULT:${date1} + ${days} days = ${result}`);
     }
+  };
+  
+  const handleClear = () => {
+    setDate1("");
+    setDate2("");
+    setDays("");
+    onClear();
   };
 
   return (
@@ -94,14 +101,14 @@ export const DateKeypad = ({ onButtonClick, onClear }: DateKeypadProps) => {
       )}
 
       <div className="grid grid-cols-2 gap-2">
-        <Button onClick={onClear} variant="secondary" className="rounded-xl h-12">
-          Clear
+        <Button onClick={handleClear} variant="secondary" className="rounded-xl h-12 text-lg font-medium">
+          C
         </Button>
         <Button 
           onClick={handleCalculate} 
-          className="rounded-xl h-14 text-lg font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
+          className="rounded-xl h-16 text-xl font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
         >
-          = Calculate
+          =
         </Button>
       </div>
     </div>

@@ -32,6 +32,22 @@ export const useCalculator = (mode: CalculatorMode) => {
   }, [history]);
 
   const handleInput = useCallback((value: string) => {
+    // Handle special commands from Date and Converter modes
+    if (value.startsWith("RESULT:")) {
+      const resultValue = value.replace("RESULT:", "");
+      setResult(resultValue);
+      setExpression(prev => prev + " = " + resultValue);
+      return;
+    }
+    
+    // Handle base change in Programmer mode
+    if (value.startsWith("BASE:")) {
+      const base = value.replace("BASE:", "");
+      setExpression("BASE:" + base);
+      setResult("0");
+      return;
+    }
+    
     setExpression(prev => {
       // Handle special functions
       if (["sin", "cos", "tan", "ln", "log", "sqrt"].includes(value)) {
@@ -55,6 +71,17 @@ export const useCalculator = (mode: CalculatorMode) => {
 
     try {
       let evalExpression = expression;
+      
+      // Skip calculation if result already set by special modes
+      if (expression.includes("RESULT:") || expression.includes(" = ")) {
+        return;
+      }
+      
+      // Handle Programmer mode
+      if (evalExpression.startsWith("BASE:")) {
+        // Don't calculate base indicator alone
+        return;
+      }
       
       // Auto-close unclosed parentheses
       const openParens = (evalExpression.match(/\(/g) || []).length;
