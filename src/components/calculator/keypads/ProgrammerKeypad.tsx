@@ -117,7 +117,7 @@ export const ProgrammerKeypad = ({ onButtonClick, onClear }: ProgrammerKeypadPro
         <CalcButton value="0" />
         <Button 
           onClick={handleEquals} 
-          className="col-span-2 h-16 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
+          className="col-span-2 h-12 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
         >
           =
         </Button>

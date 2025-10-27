@@ -114,14 +114,14 @@ export const CalculatorKeypad = ({
         <CalcButton value="2" />
         <CalcButton value="3" />
         <CalcButton value="0" />
-        <CalcButton value="." />
-        
         <Button 
           onClick={onEquals} 
-          className="col-span-5 h-14 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
+          className="h-12 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
         >
-          = (Enter)
+          =
         </Button>
+        
+        <CalcButton value="." className="col-span-4" />
       </div>
     );
   }
