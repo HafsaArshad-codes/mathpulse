@@ -10,23 +10,21 @@ interface ProgrammerKeypadProps {
 }
 
 export const ProgrammerKeypad = ({ onButtonClick, onClear }: ProgrammerKeypadProps) => {
-  const programmer = useProgrammer();
+  const programmer = useProgrammer((expression, result) => {
+    onButtonClick(`RESULT:${expression}|${result}`);
+  });
 
   const handleNumberClick = (digit: string) => {
     programmer.handleNumberInput(digit);
-    onButtonClick(`RESULT:${programmer.currentValue}${digit}`);
   };
 
   const handleBaseChange = (newBase: NumberBase) => {
     programmer.handleBaseChange(newBase);
-    onButtonClick(`BASE:${newBase}`);
   };
 
   const handleOperationClick = (op: string) => {
     if (op === "NOT") {
       programmer.handleNOT();
-      const result = programmer.currentValue;
-      onButtonClick(`RESULT:${result}`);
     } else if (["AND", "OR", "XOR", "<<", ">>"].includes(op)) {
       programmer.handleOperation(op);
     } else {
@@ -35,8 +33,7 @@ export const ProgrammerKeypad = ({ onButtonClick, onClear }: ProgrammerKeypadPro
   };
 
   const handleEquals = () => {
-    const result = programmer.calculate();
-    onButtonClick(`RESULT:${result}`);
+    programmer.calculate();
   };
 
   const handleClear = () => {

@@ -1,12 +1,19 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { NumberBase, convertBase, bitwiseOperation } from "@/utils/programmer";
 
-export const useProgrammer = () => {
+export const useProgrammer = (onDisplayUpdate?: (expression: string, result: string) => void) => {
   const [currentBase, setCurrentBase] = useState<NumberBase>("DEC");
   const [currentValue, setCurrentValue] = useState("0");
   const [expression, setExpression] = useState("");
   const [operation, setOperation] = useState<string | null>(null);
   const [previousValue, setPreviousValue] = useState<string | null>(null);
+
+  // Sync display with parent calculator
+  useEffect(() => {
+    if (onDisplayUpdate) {
+      onDisplayUpdate(expression, currentValue);
+    }
+  }, [currentValue, expression, onDisplayUpdate]);
 
   const handleNumberInput = useCallback((digit: string) => {
     setCurrentValue(prev => {
