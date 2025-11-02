@@ -36,7 +36,7 @@ To clone and run MathPulse locally:
 git clone https://github.com/yourusername/mathpulse.git
 
 # 2. Move into the project directory
-cd mycalculator
+cd mathpulse
 
 # 3. Install dependencies
 npm install
