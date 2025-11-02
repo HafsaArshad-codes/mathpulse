@@ -103,7 +103,7 @@ export const DateKeypad = ({ onButtonClick, onClear }: DateKeypadProps) => {
       )}
 
       <div className="grid grid-cols-2 gap-2">
-        <Button onClick={handleClear} variant="secondary" className="rounded-xl h-12 text-lg font-medium">
+        <Button onClick={handleClear} variant="secondary" className="rounded-xl h-16 text-lg font-medium">
           C
         </Button>
         <Button 
