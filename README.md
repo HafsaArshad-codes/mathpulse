@@ -30,10 +30,10 @@ State Management: React hooks / Context API
 
 📦 Installation & Cloning
 
-To clone and run MYCALCULATOR locally:
+To clone and run MathPulse locally:
 
 # 1. Clone the repository
-git clone https://github.com/yourusername/mycalculator.git
+git clone https://github.com/yourusername/mathpulse.git
 
 # 2. Move into the project directory
 cd mycalculator
