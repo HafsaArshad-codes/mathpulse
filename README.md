@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+🧮 MathPulse
 
-## Project info
+MathPulse is a modern, responsive, and feature-rich web calculator built using React, TypeScript, and Tailwind CSS.
+It combines a clean, matte-blue interface with advanced functionality, offering multiple modes — Standard, Scientific, Programmer, Data, and Converter.
 
-**URL**: https://lovable.dev/projects/18e40fd9-b138-4fbf-bfcd-5c1e4d7cdb7d
+Each mode is designed for accuracy, speed, and simplicity, with smooth transitions, a working Equal (“=”) button, and a universal Clear (“C”) button.
+The app also includes a Dark Mode toggle, ensuring perfect contrast and readability in all lighting conditions.
 
-## How can I edit this code?
+🚀 Features
 
-There are several ways of editing your application.
+Multi-mode calculator (Standard, Scientific, Programmer, Data, Converter)
 
-**Use Lovable**
+Fully functional Equal (“=”) and Clear (“C”) buttons in all modes
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/18e40fd9-b138-4fbf-bfcd-5c1e4d7cdb7d) and start prompting.
+Smooth and responsive UI with Tailwind styling
 
-Changes made via Lovable will be committed automatically to this repo.
+Accurate results with no errors or crashes
 
-**Use your preferred IDE**
+Dark Mode toggle with balanced color contrast
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Works offline and supports LocalStorage for saved history
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🛠️ Tech Stack
 
-Follow these steps:
+Frontend: React + TypeScript + Tailwind CSS
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Build Tool: Vite or Next.js (depending on your setup)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+State Management: React hooks / Context API
 
-# Step 3: Install the necessary dependencies.
-npm i
+📦 Installation & Cloning
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+To clone and run MYCALCULATOR locally:
+
+# 1. Clone the repository
+git clone https://github.com/yourusername/mycalculator.git
+
+# 2. Move into the project directory
+cd mycalculator
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Your app will be available at http://localhost:5173
+ (or as shown in your terminal).
 
-**Use GitHub Codespaces**
+🌙 Dark Mode
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Use the toggle in the top-right corner to switch between Light and Dark modes.
+Colors automatically adjust for proper contrast and readability.
 
-## What technologies are used for this project?
+🤝 Contribution
 
-This project is built with:
+Feel free to fork this project, make improvements, or add new features.
+If you encounter bugs, open an issue with details and screenshots.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+📄 License
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/18e40fd9-b138-4fbf-bfcd-5c1e4d7cdb7d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open-source and available under the MIT License.
