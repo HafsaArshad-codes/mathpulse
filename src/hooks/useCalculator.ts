@@ -16,7 +16,7 @@ export const useCalculator = (mode: CalculatorMode) => {
 
   // Load history from localStorage on mount
   useEffect(() => {
-    const savedHistory = localStorage.getItem("calculator-history");
+    const savedHistory = localStorage.getItem("mathpulse-history");
     if (savedHistory) {
       try {
         setHistory(JSON.parse(savedHistory));
@@ -28,7 +28,7 @@ export const useCalculator = (mode: CalculatorMode) => {
 
   // Save history to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem("calculator-history", JSON.stringify(history));
+    localStorage.setItem("mathpulse-history", JSON.stringify(history));
   }, [history]);
 
   const handleInput = useCallback((value: string) => {
@@ -135,7 +135,7 @@ export const useCalculator = (mode: CalculatorMode) => {
 
   const clearHistory = useCallback(() => {
     setHistory([]);
-    localStorage.removeItem("calculator-history");
+    localStorage.removeItem("mathpulse-history");
   }, []);
 
   const loadFromHistory = useCallback((item: HistoryItem) => {

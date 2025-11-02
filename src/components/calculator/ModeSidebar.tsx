@@ -18,7 +18,7 @@ export const ModeSidebar = ({ currentMode, onModeChange }: ModeSidebarProps) => 
 
   return (
     <div className="w-64 border-r border-border bg-card p-4 flex flex-col gap-2">
-      <h2 className="text-xl font-bold mb-4 text-foreground">MYCALCULATOR</h2>
+      <h2 className="text-xl font-bold mb-4 text-foreground">MathPulse</h2>
       {modes.map((mode) => (
         <Button
           key={mode.id}
