@@ -8,7 +8,7 @@ interface CalculatorDisplayProps {
 
 export const CalculatorDisplay = ({ expression, result, mode }: CalculatorDisplayProps) => {
   return (
-    <div className="bg-calc-display rounded-2xl p-6 shadow-lg">
+    <div className="bg-calc-display rounded-2xl p-6 shadow-[var(--shadow-3d-display)] border-2 border-border/50">
       <div className="text-sm text-muted-foreground mb-2 capitalize">
         {mode} Calculator
       </div>
