@@ -10,7 +10,7 @@ export const CalculatorDisplay = ({ expression, result, mode }: CalculatorDispla
   return (
     <div className="bg-calc-display rounded-2xl p-6 shadow-lg">
       <div className="text-sm text-muted-foreground mb-2 capitalize">
-        {mode} MathPulse
+        {mode} Calculator
       </div>
       <div className="text-right">
         <div className="text-lg text-muted-foreground min-h-8 break-all">
