@@ -103,12 +103,12 @@ export const ConverterKeypad = ({ onButtonClick, onClear }: ConverterKeypadProps
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <Button onClick={handleClear} variant="secondary" className="rounded-xl h-16 text-lg font-medium">
+        <Button onClick={handleClear} variant="secondary" className="h-16 text-lg font-medium">
           C
         </Button>
         <Button 
           onClick={handleConvert} 
-          className="rounded-xl h-16 text-xl font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
+          className="h-16 text-xl font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
         >
           =
         </Button>

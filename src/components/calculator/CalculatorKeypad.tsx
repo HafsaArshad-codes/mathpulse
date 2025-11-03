@@ -24,7 +24,7 @@ export const CalculatorKeypad = ({
     <Button
       onClick={() => onButtonClick(value)}
       variant={operator ? "default" : "outline"}
-      className={`h-16 text-lg font-medium rounded-xl ${className}`}
+      className={`h-16 text-lg font-medium ${className}`}
     >
       {value}
     </Button>
@@ -45,8 +45,8 @@ export const CalculatorKeypad = ({
   if (mode === "standard") {
     return (
       <div className="grid grid-cols-4 gap-3">
-        <Button onClick={onClear} variant="secondary" className="h-16 text-lg font-medium rounded-xl">C</Button>
-        <Button onClick={onDelete} variant="secondary" className="h-16 text-lg font-medium rounded-xl">⌫</Button>
+        <Button onClick={onClear} variant="secondary" className="h-16 text-lg font-medium">C</Button>
+        <Button onClick={onDelete} variant="secondary" className="h-16 text-lg font-medium">⌫</Button>
         <CalcButton value="%" operator />
         <CalcButton value="/" operator />
         
@@ -69,7 +69,7 @@ export const CalculatorKeypad = ({
         <CalcButton value="." />
         <Button 
           onClick={onEquals} 
-          className="h-16 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
+          className="h-16 text-xl font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
         >
           =
         </Button>
@@ -80,8 +80,8 @@ export const CalculatorKeypad = ({
   if (mode === "scientific") {
     return (
       <div className="grid grid-cols-5 gap-2">
-        <Button onClick={onClear} variant="secondary" className="h-12 text-sm rounded-xl">C</Button>
-        <Button onClick={onDelete} variant="secondary" className="h-12 text-sm rounded-xl">⌫</Button>
+        <Button onClick={onClear} variant="secondary" className="h-12 text-sm">C</Button>
+        <Button onClick={onDelete} variant="secondary" className="h-12 text-sm">⌫</Button>
         <CalcButton value="(" />
         <CalcButton value=")" />
         <CalcButton value="%" operator />
@@ -116,7 +116,7 @@ export const CalculatorKeypad = ({
         <CalcButton value="0" />
         <Button 
           onClick={onEquals} 
-          className="h-12 text-xl font-bold rounded-xl bg-calc-operator hover:bg-calc-operator-hover text-white"
+          className="h-12 text-xl font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
         >
           =
         </Button>
