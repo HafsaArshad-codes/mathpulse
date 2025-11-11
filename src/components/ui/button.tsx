@@ -9,10 +9,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[2px]",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[2px]",
-        outline: "bg-card text-foreground hover:bg-card/80 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[2px]",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[2px]",
+        default: "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground hover:from-primary/95 hover:to-primary/85 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[3px] transition-all duration-150",
+        destructive: "bg-gradient-to-b from-destructive to-destructive/90 text-destructive-foreground hover:from-destructive/95 hover:to-destructive/85 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[3px] transition-all duration-150",
+        outline: "bg-gradient-to-b from-card to-card/95 text-foreground hover:from-card/90 hover:to-card/85 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[3px] transition-all duration-150",
+        secondary: "bg-gradient-to-b from-secondary to-secondary/95 text-secondary-foreground hover:from-secondary/90 hover:to-secondary/85 shadow-[var(--shadow-3d)] hover:shadow-[var(--shadow-3d-hover)] active:shadow-[var(--shadow-3d-active)] active:translate-y-[3px] transition-all duration-150",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
