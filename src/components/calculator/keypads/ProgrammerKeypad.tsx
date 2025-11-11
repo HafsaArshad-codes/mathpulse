@@ -54,9 +54,13 @@ export const ProgrammerKeypad = ({ onButtonClick, onClear }: ProgrammerKeypadPro
             handleOperationClick(value);
           }
         }}
-        variant="outline"
+        variant="ghost"
         disabled={disabled}
-        className={`h-12 text-sm font-medium ${className}`}
+        className={`h-12 text-sm font-medium transition-all duration-150 ${
+          isOp 
+            ? "bg-calc-operator text-white shadow-[var(--calc-operator-shadow-3d)] hover:shadow-[var(--calc-operator-shadow-3d-hover)] active:shadow-[var(--calc-operator-shadow-3d-active)] active:translate-y-1" 
+            : "bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1"
+        } disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none ${className}`}
       >
         {value}
       </Button>
@@ -83,7 +87,7 @@ export const ProgrammerKeypad = ({ onButtonClick, onClear }: ProgrammerKeypadPro
       </div>
 
       <div className="grid grid-cols-5 gap-2">
-        <Button onClick={handleClear} variant="secondary" className="h-12 text-lg font-medium col-span-2">C</Button>
+        <Button onClick={handleClear} variant="ghost" className="h-12 text-lg font-medium col-span-2 bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1 transition-all duration-150">C</Button>
         <CalcButton value="AND" />
         <CalcButton value="OR" />
         <CalcButton value="XOR" />
@@ -116,8 +120,9 @@ export const ProgrammerKeypad = ({ onButtonClick, onClear }: ProgrammerKeypadPro
         <CalcButton value="3" disabled={programmer.currentBase === "BIN"} />
         <CalcButton value="0" />
         <Button 
-          onClick={handleEquals} 
-          className="col-span-2 h-12 text-xl font-bold bg-calc-operator hover:bg-calc-operator-hover text-white"
+          onClick={handleEquals}
+          variant="ghost" 
+          className="col-span-2 h-12 text-xl font-bold bg-calc-operator text-white shadow-[var(--calc-operator-shadow-3d)] hover:shadow-[var(--calc-operator-shadow-3d-hover)] active:shadow-[var(--calc-operator-shadow-3d-active)] active:translate-y-1 transition-all duration-150"
         >
           =
         </Button>
