@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import ThreeDButton from "@/components/ThreeDButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -103,16 +103,16 @@ export const ConverterKeypad = ({ onButtonClick, onClear }: ConverterKeypadProps
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <Button onClick={handleClear} variant="ghost" className="h-16 text-lg font-medium bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1 transition-all duration-150">
+        <ThreeDButton onClick={handleClear} className="h-16 text-lg">
           C
-        </Button>
-        <Button 
+        </ThreeDButton>
+        <ThreeDButton 
           onClick={handleConvert}
-          variant="ghost" 
-          className="h-16 text-xl font-bold bg-calc-operator text-white shadow-[var(--calc-operator-shadow-3d)] hover:shadow-[var(--calc-operator-shadow-3d-hover)] active:shadow-[var(--calc-operator-shadow-3d-active)] active:translate-y-1 transition-all duration-150"
+          variant="operator"
+          className="h-16 text-xl font-bold"
         >
           =
-        </Button>
+        </ThreeDButton>
       </div>
     </div>
   );

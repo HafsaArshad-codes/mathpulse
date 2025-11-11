@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import ThreeDButton from "@/components/ThreeDButton";
 import { CalculatorMode } from "../Calculator";
 import { ProgrammerKeypad } from "./keypads/ProgrammerKeypad";
 import { DateKeypad } from "./keypads/DateKeypad";
@@ -21,17 +21,13 @@ export const CalculatorKeypad = ({
 }: CalculatorKeypadProps) => {
   
   const CalcButton = ({ value, className = "", operator = false }: { value: string; className?: string; operator?: boolean }) => (
-    <Button
+    <ThreeDButton
       onClick={() => onButtonClick(value)}
-      variant="ghost"
-      className={`h-16 text-lg font-medium transition-all duration-150 ${
-        operator
-          ? "bg-calc-operator text-white shadow-[var(--calc-operator-shadow-3d)] hover:shadow-[var(--calc-operator-shadow-3d-hover)] active:shadow-[var(--calc-operator-shadow-3d-active)] active:translate-y-1"
-          : "bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1"
-      } ${className}`}
+      variant={operator ? "operator" : "number"}
+      className={`h-16 text-lg ${className}`}
     >
       {value}
-    </Button>
+    </ThreeDButton>
   );
 
   if (mode === "programmer") {
@@ -49,8 +45,8 @@ export const CalculatorKeypad = ({
   if (mode === "standard") {
     return (
       <div className="grid grid-cols-4 gap-3">
-        <Button onClick={onClear} variant="ghost" className="h-16 text-lg font-medium bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1 transition-all duration-150">C</Button>
-        <Button onClick={onDelete} variant="ghost" className="h-16 text-lg font-medium bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1 transition-all duration-150">⌫</Button>
+        <ThreeDButton onClick={onClear} className="h-16 text-lg">C</ThreeDButton>
+        <ThreeDButton onClick={onDelete} className="h-16 text-lg">⌫</ThreeDButton>
         <CalcButton value="%" operator />
         <CalcButton value="/" operator />
         
@@ -71,13 +67,13 @@ export const CalculatorKeypad = ({
         
         <CalcButton value="0" className="col-span-2" />
         <CalcButton value="." />
-        <Button 
+        <ThreeDButton 
           onClick={onEquals}
-          variant="ghost"
-          className="h-16 text-xl font-bold bg-calc-operator text-white shadow-[var(--calc-operator-shadow-3d)] hover:shadow-[var(--calc-operator-shadow-3d-hover)] active:shadow-[var(--calc-operator-shadow-3d-active)] active:translate-y-1 transition-all duration-150"
+          variant="operator"
+          className="h-16 text-xl font-bold"
         >
           =
-        </Button>
+        </ThreeDButton>
       </div>
     );
   }
@@ -85,8 +81,8 @@ export const CalculatorKeypad = ({
   if (mode === "scientific") {
     return (
       <div className="grid grid-cols-5 gap-2">
-        <Button onClick={onClear} variant="ghost" className="h-12 text-sm bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1 transition-all duration-150">C</Button>
-        <Button onClick={onDelete} variant="ghost" className="h-12 text-sm bg-calc-button text-foreground shadow-[var(--calc-shadow-3d)] hover:shadow-[var(--calc-shadow-3d-hover)] active:shadow-[var(--calc-shadow-3d-active)] active:translate-y-1 transition-all duration-150">⌫</Button>
+        <ThreeDButton onClick={onClear} className="h-12 text-sm">C</ThreeDButton>
+        <ThreeDButton onClick={onDelete} className="h-12 text-sm">⌫</ThreeDButton>
         <CalcButton value="(" />
         <CalcButton value=")" />
         <CalcButton value="%" operator />
@@ -119,13 +115,13 @@ export const CalculatorKeypad = ({
         <CalcButton value="2" />
         <CalcButton value="3" />
         <CalcButton value="0" />
-        <Button 
+        <ThreeDButton 
           onClick={onEquals}
-          variant="ghost"
-          className="h-12 text-xl font-bold bg-calc-operator text-white shadow-[var(--calc-operator-shadow-3d)] hover:shadow-[var(--calc-operator-shadow-3d-hover)] active:shadow-[var(--calc-operator-shadow-3d-active)] active:translate-y-1 transition-all duration-150"
+          variant="operator"
+          className="h-12 text-xl font-bold"
         >
           =
-        </Button>
+        </ThreeDButton>
         
         <CalcButton value="." className="col-span-4" />
       </div>
