@@ -32,6 +32,7 @@ const Calculator = () => {
             onClear={calculator.clear}
             onDelete={calculator.deleteLast}
             onEquals={calculator.calculate}
+            onPaste={(text) => calculator.handleInput(text)}
           />
         </div>
       </div>

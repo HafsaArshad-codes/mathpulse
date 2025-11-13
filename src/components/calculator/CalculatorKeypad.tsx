@@ -10,6 +10,7 @@ interface CalculatorKeypadProps {
   onClear: () => void;
   onDelete: () => void;
   onEquals: () => void;
+  onPaste?: (text: string) => void;
 }
 
 export const CalculatorKeypad = ({ 
@@ -17,8 +18,20 @@ export const CalculatorKeypad = ({
   onButtonClick, 
   onClear, 
   onDelete, 
-  onEquals 
+  onEquals,
+  onPaste 
 }: CalculatorKeypadProps) => {
+  
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text && onPaste) {
+        onPaste(text);
+      }
+    } catch (err) {
+      console.error('Failed to read clipboard:', err);
+    }
+  };
   
   const CalcButton = ({ value, className = "", operator = false }: { value: string; className?: string; operator?: boolean }) => (
     <ThreeDButton
@@ -46,8 +59,8 @@ export const CalculatorKeypad = ({
     return (
       <div className="grid grid-cols-4 gap-3">
         <ThreeDButton onClick={onClear} className="h-16 text-lg">C</ThreeDButton>
+        <ThreeDButton onClick={handlePaste} className="h-16 text-lg">📋</ThreeDButton>
         <ThreeDButton onClick={onDelete} className="h-16 text-lg">⌫</ThreeDButton>
-        <CalcButton value="%" operator />
         <CalcButton value="/" operator />
         
         <CalcButton value="7" />
@@ -82,10 +95,10 @@ export const CalculatorKeypad = ({
     return (
       <div className="grid grid-cols-5 gap-2">
         <ThreeDButton onClick={onClear} className="h-12 text-sm">C</ThreeDButton>
+        <ThreeDButton onClick={handlePaste} className="h-12 text-sm">📋</ThreeDButton>
         <ThreeDButton onClick={onDelete} className="h-12 text-sm">⌫</ThreeDButton>
         <CalcButton value="(" />
         <CalcButton value=")" />
-        <CalcButton value="%" operator />
         
         <CalcButton value="sin" />
         <CalcButton value="cos" />
