@@ -80,8 +80,15 @@ export const useCalculator = (mode: CalculatorMode) => {
     try {
       let evalExpression = expression;
       
-      // Skip calculation if result already set by special modes
-      if (expression.includes("RESULT:") || expression.includes(" = ")) {
+      // For special modes (Date, Converter) that already set result, just add to history
+      if (result !== "0" && (expression.includes(" to ") || expression.includes(" = ") || expression.includes("days"))) {
+        const historyItem: HistoryItem = {
+          id: Date.now().toString(),
+          expression: expression,
+          result: result,
+          timestamp: Date.now(),
+        };
+        setHistory(prev => [...prev, historyItem]);
         return;
       }
       
